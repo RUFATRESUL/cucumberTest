@@ -4,6 +4,9 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
+
+import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import pages.AmazonPage;
 import utilities.ConfigReader;
@@ -20,12 +23,12 @@ public class AmazonStepDefination {
     }
     @When("kullanici Iphone aratir")
     public void kullanici_ıphone_aratir() {
-        amazonPage.searchBox.sendKeys("Iphone");
+        amazonPage.searchBox.sendKeys("Iphone", Keys.ENTER);
 
     }
     @Then("kullanici sonuclarin Iphone icerdigini test eder")
     public void kullanici_sonuclarin_ıphone_icerdigini_test_eder() {
-        Assert.assertTrue(amazonPage.countIphone.isDisplayed(), "Iphone sonuçları bulunamadı");
+        Assert.assertTrue(amazonPage.countIphone.isDisplayed());
 
     }
     @Then("Istifadeci sehifeni baglar")
